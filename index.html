@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app"> 
+<meta name="flexible" content="initial-dpr=1" />
+<script type="text/javascript" src="js/flexible.js"></script>
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>电子名片卡-新安房产网</title>
+</head>
+<body>
+<!-- Swiper -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<img src="img/bg1.png" class="bg bg1" alt="背景">
+			<img src="img/logo.png" class="logo logo1" alt="logo" >
+			<div class="user-infomation">
+				<img src="" class="avatar" onerror="this.src='img/avatar.png';" alt="头像">
+				<h2>李平</h2>
+				<div class="line"></div>
+				<p class="position">执行董事</p>
+				<p class="tel">M 13344556677</p>
+			</div>
+			<div class="company-infomation">
+				<img src="img/logos.png" class="logos" alt="logo" >
+				<img src="img/qrcode.png" class="qrcode" alt="二维码" >
+			</div>
+		</div>
+		<div class="swiper-slide bg-ec6c0e">
+			<img src="img/bg2.png" class="bg bg2" alt="背景">
+			<div class="company-details">
+				<h3>安徽新安爱房资讯有限公司<em>（运营品牌：新安房产网）</em></h3>
+				<h4>房产领域综合服务型平台</h4>
+				<p><b>14</b><i class="icon icon1"></i>深耕地产行业</p>
+				<p><b>17</b><i class="icon icon2"></i>全覆盖</p>
+				<p><b>500</b><i>+</i>服务企业</p>
+			</div>
+			<img src="img/logo.png" class="logo logo2" alt="logo" >
+		</div>
+		<div class="swiper-slide bg-ec6c0e">
+			<img src="img/bg3.png" class="bg bg3" alt="背景">
+			<img src="img/info.png" class="company" alt="简介">
+			<img src="img/logo.png" class="logo logo2" alt="logo" >
+		</div>
+		<div class="swiper-slide">
+			<img src="img/bg4.png" class="bg bg4" alt="背景">
+			<img src="img/logo.png" class="logob" alt="logo" >
+			<div class="qrcode-wrap">
+				<img src="img/qrcode2.png" class="qrcode2" alt="二维码" >
+				<p><i class="telPhone"></i><span>400-810-1298</span></p>
+				<p><i class="href"></i><span>www.xafc.com</span></p>
+				<h4>安徽省合肥市经开区芙蓉路与玉屏路交口创新创业园2栋C区4层</h4>
+			</div>
+			<img src="img/logos2.png" class="bottom-logos" alt="logo">
+		</div>
+	</div>
+	<!-- Add Pagination -->
+	<div class="swiper-pagination"></div>
+</div>
+<script src="js/zepto.min.js" type="text/javascript" src="js/zepto.min.js"></script>
+<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var swiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true
+		}
+	});
+	var viewportHeight = window.innerHeight || 
+	    document.documentElement.clientHeight ||
+	    document.body.clientHeight || 0;
+	//第一页
+	var $height1 = $('.bg1').height() + $('.company-infomation').height();
+	if($height1 > viewportHeight) {
+		var _h = Number(viewportHeight - $height1);
+		$('.swiper-slide .user-infomation,.swiper-slide .bg1').css('marginTop',_h);
+	} else {
+		var _h = Number(viewportHeight - $height1);
+		if(_h - 30 > 0) {
+			$('.company-infomation').css('bottom',(_h - 30));
+		}
+ 	}
+	//第二页
+	var $height2 = $('.bg2').height() + $('.company-details').height() + $('.logo2').height() + 40;
+	if($height2 > viewportHeight) {
+		var _h = Number(viewportHeight - $height2);
+		$('.swiper-slide .company-details,.swiper-slide .bg2').css('marginTop',_h);
+		$('.company-details p').css('marginTop','0.46rem')
+	}
+	//第三页
+	var $height3 = $('.bg3').height() + $('.company').height() + $('.logo2').height() + 100;
+	if($height3 > viewportHeight) {
+		var _h = Number(viewportHeight - $height3);
+		$('.swiper-slide .company,.swiper-slide .bg3').css('marginTop',_h);
+	}
+	//第四页
+	var $height4 = $('.qrcode-wrap').height()*2;
+	if($height4 > viewportHeight) {
+		$('.swiper-slide .qrcode2').css('marginTop','1.6rem');
+		$('.swiper-slide .logob').css('top','1.8rem')
+	}
+	
+	function reload(){
+		window.location.reload();
+	} //适用于刷新页面
+	window.addEventListener('pageshow', function(event) {
+	    //event.persisted属性为true时，表示当前文档是从往返缓存中获取
+	    if(event.persisted) reload();  
+	});//强制刷新页面
+</script>
+</body>
+</html>

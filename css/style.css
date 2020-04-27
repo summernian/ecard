@@ -30,6 +30,58 @@ html, body {
 	/* 禁止溢出 */
 	overflow: hidden;
 }
+.slide-button-wrap {
+	position: absolute;
+	bottom: 0.4rem;
+	left: 50%;
+	width: 0.64rem;
+	height: 0.4rem;
+	margin-left: -0.32rem;
+	z-index: 2;
+}
+.slide-button-wrap .button-wrap {
+	position: relative;
+	width: 0.64rem;
+	height: 0.4rem;
+	-webkit-animation: slideFadeOut 2s infinite ease-in-out;
+	animation: slideFadeOut 2s infinite ease-in-out;
+}
+.slide-button-wrap .button-wrap .left-wrap,
+.slide-button-wrap .button-wrap .right-wrap {
+	float: left;
+	position: relative;
+	margin-top: -0.02rem;
+	width: 0.32rem;
+	height: 0.44rem;
+	overflow: hidden;
+}
+.slide-button-wrap .button-wrap i {
+	position: absolute;
+	top: 0.16rem;
+	width: 0.32rem;
+	height: 0.12rem;
+	background-color: #fff;
+	border-radius: 0.06rem;
+	/* border: 0.03rem solid #999; */
+}
+.slide-button-wrap .button-wrap.gray i {
+	background-color: #999;
+}
+.slide-button-wrap .button-wrap .left-wrap i {
+    left: 0.12rem;
+    transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+	/* border-bottom: none;
+	box-shadow: 0 0.03rem 0.03rem #999; */
+}
+.slide-button-wrap .button-wrap .right-wrap i {
+    left: -0.09rem;
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+	/* border-top: none;
+	box-shadow: 0 -0.03rem 0.03rem #999; */
+}
+
 .bg-ec6c0e {
 	background: #ec6c0e;
 }
@@ -177,7 +229,7 @@ html, body {
 	background: url(../img/icon2.png) no-repeat center;
 	background-size: 0.52rem;
 }
-.swiper-slide .company {
+.swiper-slide .company-img-wrap {
 	position: absolute;
 	width: 8.52rem;
 	height: 6.4rem;
@@ -185,6 +237,10 @@ html, body {
 	left: 0;
 	right: 0;
 	margin: 0 auto;
+}
+.swiper-slide .company-img-wrap img {
+	width: 100%;
+	height: 100%;
 }
 .swiper-slide .logob {
 	position: absolute;
@@ -254,4 +310,88 @@ html, body {
 	height: 0.84rem;
 	margin: 0 auto;
 	z-index: 2;
+}
+
+/* 动画效果 */
+/* 起始动画 */
+.swiper-slide .logob,
+.swiper-slide .logo,
+.swiper-slide .bg {
+	transform: translateY(-100%);
+	opacity:0;
+	transition: all .8s;
+}
+.swiper-slide .bg4 {
+	transition: all .4s;
+}
+.swiper-slide p {
+	transform: translateX(-100%) skewX(-60deg);
+	opacity: 0;
+	transition: all 1s ease;
+}
+.swiper-slide .avatar {
+	transform: rotate(-180deg);
+	opacity: 0;
+	transition: all .8s;
+}
+.swiper-slide h2,
+.swiper-slide h3,
+.swiper-slide h4 {
+	transform: translateX(100%);
+	opacity:0;
+	transition: all .8s;
+}
+.swiper-slide .line {
+	opacity:0;
+	transition: all 1.5s;
+}
+.swiper-slide .company-img-wrap {
+	transform: rotateY(90deg);
+	opacity: 0;
+	transition: all .5s ease-in;
+}
+.swiper-slide .qrcode2 {
+	opacity: 0;
+	transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+	transition: all 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.swiper-slide .company-infomation,
+.swiper-slide .bottom-logos {
+	opacity: 0;
+}
+
+/* 结果动画 */
+.ani-slide .logob,
+.ani-slide .logo,
+.ani-slide .bg {
+	transform: translateY(0);
+	opacity: 1;
+}
+.ani-slide p,
+.ani-slide h2,
+.ani-slide h3,
+.ani-slide h4 {
+	transform: translateX(0) skewX(0);
+	opacity: 1;
+}
+.ani-slide .avatar {
+	transform: rotate(0);
+	opacity: 1;
+}
+.ani-slide .line {
+	opacity: 1;
+}
+.ani-slide .company-img-wrap {
+	transform: perspective(400px) rotateY(0deg);
+	opacity: 1;
+}
+.ani-slide .qrcode2 {
+	opacity: 1;
+	transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+}
+.ani-slide .company-infomation,
+.ani-slide .bottom-logos {
+	-webkit-animation: flash 1s ease;
+			animation: flash 1s ease;
+	opacity: 1;
 }

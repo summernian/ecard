@@ -37,6 +37,12 @@
 				<img src="img/logos.png" class="logos" alt="logo" >
 				<img src="img/qrcode.png" class="qrcode" alt="二维码" >
 			</div>
+			<div class="slide-button-wrap">
+				<div class="button-wrap gray">
+					<div class="left-wrap"><i></i></div>
+					<div class="right-wrap"><i></i></div>
+				</div>
+			</div>
 		</div>
 		<div class="swiper-slide bg-ec6c0e">
 			<img src="img/bg2.png" class="bg bg2" alt="背景">
@@ -48,13 +54,27 @@
 				<p><b>500</b><i>+</i>服务企业</p>
 			</div>
 			<img src="img/logo.png" class="logo logo2" alt="logo" >
+			<div class="slide-button-wrap">
+				<div class="button-wrap">
+					<div class="left-wrap"><i></i></div>
+					<div class="right-wrap"><i></i></div>
+				</div>
+			</div>
 		</div>
 		<div class="swiper-slide bg-ec6c0e">
 			<img src="img/bg3.png" class="bg bg3" alt="背景">
-			<img src="img/info.png" class="company" alt="简介">
+			<div class="company-img-wrap">
+				<img src="img/info.png" class="company" alt="简介">
+			</div>
 			<img src="img/logo.png" class="logo logo2" alt="logo" >
+			<div class="slide-button-wrap">
+				<div class="button-wrap clearFix">
+					<div class="left-wrap"><i></i></div>
+					<div class="right-wrap"><i></i></div>
+				</div>
+			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide bg-ec6c0e">
 			<img src="img/bg4.png" class="bg bg4" alt="背景">
 			<img src="img/logo.png" class="logob" alt="logo" >
 			<div class="qrcode-wrap">
@@ -64,6 +84,12 @@
 				<h4>安徽省合肥市经开区芙蓉路与玉屏路交口创新创业园2栋C区4层</h4>
 			</div>
 			<img src="img/logos2.png" class="bottom-logos" alt="logo">
+			<div class="slide-button-wrap">
+				<div class="button-wrap">
+					<div class="left-wrap"><i></i></div>
+					<div class="right-wrap"><i></i></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Add Pagination -->
@@ -74,11 +100,29 @@
 <script type="text/javascript">
 	var swiper = new Swiper('.swiper-container', {
 		direction: 'vertical',
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true
-		}
-	});
+		loop: true,
+		speed:800,
+		followFinger : false,
+		// pagination: {
+		// 	el: '.swiper-pagination',
+		// 	clickable: true
+		// }
+		on:{
+			init:function(swiper){
+				slide=this.slides.eq(0);
+				slide.addClass('ani-slide');
+			},
+			transitionStart: function(){
+				for(i=0;i<this.slides.length;i++){
+					slide=this.slides.eq(i);
+					slide.removeClass('ani-slide');
+				}
+			},
+			transitionEnd: function(){
+				slide=this.slides.eq(this.activeIndex);
+				slide.addClass('ani-slide');
+			}
+		}	});
 	var viewportHeight = window.innerHeight || 
 	    document.documentElement.clientHeight ||
 	    document.body.clientHeight || 0;

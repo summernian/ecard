@@ -127,6 +127,9 @@ html, body {
 	margin-left: -0.24rem;
 	width: 2.16rem;
 	height: 2.16rem;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+			border-radius: 50%;
 }
 .user-infomation h2 {
 	margin-top: 0.48rem;
